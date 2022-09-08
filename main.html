@@ -6,66 +6,55 @@
     <title>Remainders</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles\style.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
   </head>
   <body>
-    <div class="container">
-      <div id="lista">
+    <nav class="navbar sticky-top" id="nav-top">
+      <div class="container">
+        <a class="navbar-brand" target ="blank" title ="Instagram account" href="https://www.instagram.com/"><img src="https://img.icons8.com/ios-filled/42/737373/instagram-new--v1.png"/></a>
+        <a class="navbar-brand" target ="blank" title ="Google account" href="https://myaccount.google.com/"><img src="https://img.icons8.com/ios-filled/40/737373/google-logo.png"/></a>
+        <a class="navbar-brand" target ="blank" title ="Linkedin account" href="https://www.linkedin.com"><img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/40/737373/external-linkedin-social-media-tanah-basah-glyph-tanah-basah.png"/></a>
+        <a class="navbar-brand" target ="blank" title ="Facebook account" href="https://www.facebook.com/"><img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/40/737373/external-facebook-social-media-tanah-basah-glyph-tanah-basah.png"/></a>
+        <a class="navbar-brand" target ="blank" title ="GitHub account" href="https://github.com/"><img src="https://img.icons8.com/ios-filled/40/737373/github.png"/></a>
+        <a class="navbar-brand" target ="blank" title ="Twitter account" href="https://twitter.com"><img src="https://img.icons8.com/ios-filled/40/737373/twitter.png"/></a>
       </div>
-      <!--<div class="card">
-        <div class="card-body">
-          <div class="card-body">
-              <h5>Spalat pe dinti</h5>
-          </div>
+      <p id="copyright">by v!o</p></a>
+    </nav>
+
+
+    <div class="container" id="main-container">
+      <div class="card text-bg-light mb-1">
+        <div class="card">
+          <img src="images\j4o.gif" height ="30" class="card-img-top">
         </div>
-        <div class="card-footer text-muted">
-          <a href="#" class="btn btn-danger"><img src="https://img.icons8.com/ios-glyphs/25/000000/delete.png"/></a>
-        </div>
-      </div>-->
-      <div class="card">
-        <div class="card-header">
+        <!--<div class="card-header">
           <h5>Adauga un task</h5>
-        </div>
+        </div>-->
         <div class="card-body">
           <form>
-            <div class="mb-3">
+            <div class="mb-1">
               <label class="form-label">Descriere</label>
               <input type="text" class="form-control" id="task">
-              <div id="emailHelp" class="form-text">Adauga o scurta descriere a task-ului</div>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <div class="mb-1 form-check">
+              <input type="checkbox" class="form-check-input" id="urgent">
               <label class="form-check-label">Urgent ?</label>
             </div>
-            <button type="submit" class="btn btn-primary" onclick="return adaugareTask();">Adauga</button>
+            <!--<button type="submit" class="btn btn-success" onclick="return adaugareTask();">Adauga</button>-->
+            <button type="button" class="btn btn-success position-relative" onclick="return adaugareTask();">Adauga
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" "return upTask();">
+                <div id="nrOfTasks"></div>
+              </span>
+            </button>
           </form>
         </div>
+      </div>
+      <div id="lista">
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-    </script>
-    <script>
-      function adaugareTask() {
-        //var task = document.getElementById("task").value;
-        var task = $('#task').val();
-        /*$('#lista').append(`
-          <div class="card">
-            <div class="card-body">
-              <div class="card-body">
-                  <h5>` + task + `</h5>
-              </div>
-            </div>
-            <div class="card-footer text-muted">
-              <a href="#" class="btn btn-danger"><img src="https://img.icons8.com/ios-glyphs/25/000000/delete.png"/></a>
-            </div>
-          </div>
-          `);*/
-        alert(task);
-        return false;
-      }
-    </script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
