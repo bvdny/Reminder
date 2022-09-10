@@ -1,17 +1,17 @@
 
-var numarTask = 1;
-var upTasks = 0;
+var cardSignature = 1;
+var countingRemainingTasks = 0;
 function adaugareTask() {
-  ++upTasks;
-  document.getElementById("nrOfTasks").innerHTML = upTasks;
+  ++countingRemainingTasks;
+  document.getElementById("nrOfTasks").innerHTML = countingRemainingTasks;
   var task = document.getElementById("task").value;
-  var eUrgent = document.querySelector('#urgent:checked') != null;
+  var isUrgent = document.querySelector('#urgent:checked') != null;
   var divClass = "card alert alert-light";
-  if (eUrgent) {
+  if (isUrgent) {
     divClass = "card alert alert-danger";
   }
   document.getElementById("lista").innerHTML += `
-    <div class="` + divClass + `" id="`+ numarTask + `">
+    <div class="` + divClass + `" id="`+ cardSignature + `">
       <p>Task added on: <strong>`+ getDate() +`</strong> at <strong>`+ getTime() +`</strong></p>
       <div class="card-body">
         <div class="card-body">
@@ -19,17 +19,17 @@ function adaugareTask() {
         </div>
       </div>
       <div class="card-footer text-muted">
-        <a href="#" class="btn btn-danger btn-sm" onclick="return stergereTask(` + numarTask + `);"><img src="https://img.icons8.com/ios-glyphs/25/000000/trash--v1.png"/></a>
+        <a href="#" class="btn btn-danger btn-sm" onclick="return stergereTask(` + cardSignature + `);"><img src="https://img.icons8.com/ios-glyphs/25/000000/trash--v1.png"/></a>
       </div>
     </div>`;
-    ++numarTask;
+    ++cardSignature;
   return false;
 }
 
 function stergereTask(idTask) {
-  --upTasks;
+  --countingRemainingTasks;
   document.getElementById(idTask).remove();
-  document.getElementById("nrOfTasks").innerHTML = upTasks;
+  document.getElementById("nrOfTasks").innerHTML = countingRemainingTasks;
   return false;
 }
 

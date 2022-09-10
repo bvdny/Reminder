@@ -20,4 +20,10 @@ body {
   font-weight: bold;
   font-family: cursive;
   text-shadow: 2px 2px 5px grey;
+  opacity: 0.4;
+
+}
+
+#navbar-img:hover {
+  opacity: 0.6;
 }
