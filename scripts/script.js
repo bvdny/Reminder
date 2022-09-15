@@ -1,35 +1,38 @@
-
 var cardSignature = 1;
 var countingRemainingTasks = 0;
-function adaugareTask() {
-  ++countingRemainingTasks;
-  document.getElementById("nrOfTasks").innerHTML = countingRemainingTasks;
+function addTask() {
   var task = document.getElementById("task").value;
   var isUrgent = document.querySelector('#urgent:checked') != null;
   var divClass = "card alert alert-light";
   if (isUrgent) {
     divClass = "card alert alert-danger";
   }
-  document.getElementById("lista").innerHTML += `
-    <div class="` + divClass + `" id="`+ cardSignature + `">
-      <p>Task added on: <strong>`+ getDate() +`</strong> at <strong>`+ getTime() +`</strong></p>
-      <div class="card-body">
+  if (task === "") {
+    alert("The task description field must not be empty !");
+  } else {
+    document.getElementById("listOfTask").innerHTML += `
+      <div class="` + divClass + `" id="`+ cardSignature + `">
+        <p>Task added on: <strong>`+ getDate() +`</strong> at <strong>`+ getTime() +`</strong></p>
         <div class="card-body">
-            <h5>` + task + `</h5>
+          <div class="card-body">
+              <h5>` + task + `</h5>
+          </div>
         </div>
-      </div>
-      <div class="card-footer text-muted">
-        <a href="#" class="btn btn-danger btn-sm" onclick="return stergereTask(` + cardSignature + `);"><img src="https://img.icons8.com/ios-glyphs/25/000000/trash--v1.png"/></a>
-      </div>
-    </div>`;
-    ++cardSignature;
+        <div class="card-footer text-muted">
+          <a href="#" class="btn btn-danger btn-sm" onclick="return deleteTask(` + cardSignature + `);"><img src="https://img.icons8.com/ios-glyphs/25/000000/trash--v1.png"/></a>
+        </div>
+      </div>`;
+      ++countingRemainingTasks;
+      ++cardSignature;
+  }
+  document.getElementById("remainingTasks").innerHTML = countingRemainingTasks;
   return false;
 }
 
-function stergereTask(idTask) {
+function deleteTask(idTask) {
   --countingRemainingTasks;
   document.getElementById(idTask).remove();
-  document.getElementById("nrOfTasks").innerHTML = countingRemainingTasks;
+  document.getElementById("remainingTasks").innerHTML = countingRemainingTasks;
   return false;
 }
 
